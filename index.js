@@ -42,13 +42,22 @@ const replaceModule = (from, to) => {
 };
 
 /**
- *
- * @param from
+ * Removes the previous replacement order from a module. This
+ * does not update existing required instances, only any new
+ * require() calls after this method is run.
+ * @param {String} from The path of the module to revert.
+ * @returns {*} Nothing.
  */
 const revertModule = (from) => {
 	delete replacementFor[from];
 };
 
+/**
+ * Enables or disables log output to the console.
+ * @param {Boolean} val True to switch on logging, false to
+ * switch off logging.
+ * @returns {*} Nothing.
+ */
 const verbose = (val) => {
 	_verbose = val;
 };
