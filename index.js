@@ -3,6 +3,10 @@ const replacementFor = {};
 let _verbose = false;
 
 intercept((moduleExport, info) => {
+	if (info.error) {
+		throw info.error;
+	}
+	
 	const toModule = replacementFor[info.moduleId];
 	
 	if (toModule) {
